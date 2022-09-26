@@ -1,17 +1,24 @@
-all: server
+run: bin
+	@rm -rf src/*.o
+	bin/httpc
+
+bin: src/main.o src/httpd.o
+	mkdir -p bin
+	gcc -o bin/httpc $^
+
+main.o: src/main.c src/httpd.h
+	gcc -c -o src/main.o src/main.c
+
+httpd.o: src/httpd.c src/httpd.h
+	gcc -c -o src/httpd.o src/httpd.c
+
 
 clean:
-	@rm -rf *.o
-	@rm -rf server
+	@rm -rf src/*.o
+	@rm -rf bin
 
-server: main.o httpd.o
-	gcc -o server $^
-
-main.o: main.c httpd.h
-	gcc -c -o main.o main.c
-
-httpd.o: httpd.c httpd.h
-	gcc -c -o httpd.o httpd.c
-
-run: server
-	./server
+git: clean
+	echo git
+	git add .
+	git commit -m "makefile commit"
+	git push
