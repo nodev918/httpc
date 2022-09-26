@@ -20,5 +20,5 @@ clean:
 git: clean
 	echo git
 	git add .
-	git commit -m "makefile commit"
+	git commit -m $(m)
 	git push
