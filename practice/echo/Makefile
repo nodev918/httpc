@@ -1,8 +1,5 @@
-run: server
+run-server: echo 
 	./echo
 
-server: echo.o
-	gcc -c -o echo $^
-
-echo.o: echo.c
-	gcc -c -o echo.o echo.c
+echo: echo.c
+	gcc  -o echo echo.c

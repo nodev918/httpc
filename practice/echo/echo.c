@@ -33,7 +33,7 @@ int main(){
   if ( listen_result != 0 ){
     printf("[F] listen failed...\n");
   } else {
-    printf("[P] listening port: %d",PORT);
+    printf("[P]port: %d\n",PORT);
   }
 
   
