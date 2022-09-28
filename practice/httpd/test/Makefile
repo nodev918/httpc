@@ -1,8 +1,8 @@
-run-server: echo 
-	./echo
+run-server: httpd 
+	./httpd
 
-echo: echo.c
-	gcc  -o echo echo.c
+httpd: httpd.c
+	gcc  -o httpd httpd.c
 
 
 run-client: client

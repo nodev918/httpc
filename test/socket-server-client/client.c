@@ -7,7 +7,7 @@
 #include <sys/socket.h>
 #include <unistd.h> // read(), write(), close()
 #define MAX 80
-#define PORT 8088
+#define PORT 8888
 #define SA struct sockaddr
 void func(int sockfd)
 {
