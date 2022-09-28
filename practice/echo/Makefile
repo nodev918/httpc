@@ -1,12 +1,21 @@
-run-server: echo 
-	./echo
+run-server: server
+	./server
 
-echo: echo.c
-	gcc  -o echo echo.c
+server: server.o
+	gcc -o server $^
+
+server.o: server.c Makefile
+	gcc -c -o server.o server.c 
 
 
 run-client: client
 	./client
 
-client: client.c
-	gcc -o client client.c
+client: client.o
+	gcc -o client $^
+
+client.o: client.c Makefile
+	gcc -c -o client.o client.c 
+
+clean:
+	rm -rf *.o
